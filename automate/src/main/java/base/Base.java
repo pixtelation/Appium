@@ -21,7 +21,8 @@ public class Base {
         options.setAppPackage("app.plugg.social");   //Change as per app
         options.setAppActivity("app.plugg.social.MainActivity");  //Change as per app
         options.setAutomationName("UiAutomator2");
-        // options.setNoReset(true);
+        options.setCapability("newCommandTimeout", 60 * 5); // Keep th appium server alive for 5 minutes
+        //  options.setNoReset(true);
         
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
         driver.manage().timeouts().implicitlyWait(6,TimeUnit.SECONDS) ;

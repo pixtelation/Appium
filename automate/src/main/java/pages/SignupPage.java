@@ -3,8 +3,14 @@ package pages;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+import resources.Data;
 
 public class SignupPage {
+  
     private AndroidDriver driver;
     WebElement element;
 
@@ -25,12 +31,33 @@ public class SignupPage {
         driver.findElement(SignUsername).click();
         driver.findElement(SignUsername).sendKeys(username);
         driver.findElement(SignEmail).click();
-        driver.findElement(SignEmail).sendKeys(email);
+        driver.findElement(SignEmail).sendKeys(email + "@maildrop.cc");
         driver.findElement(SignPassword).click();
         driver.findElement(SignPassword).sendKeys(password);
         driver.findElement(SignUpButton).click();
 
 
+    }
+
+    public void otp(){
+        String otpText = "Your OTP to verify email is: 395987"; // The text from the element
+
+        driver.get("http://www.yopmail.com/en/");               //Open Yopmail
+        driver.findElement(By.xpath("//input[@id='login']")).sendKeys(Data.RndString);
+        driver.findElement(By.xpath("//div[@id='refreshbut']")).click();
+
+        // Regex to capture exactly 6 digits
+        Pattern pattern = Pattern.compile("(\\d{6})"); // Matches exactly 6 digits
+        Matcher matcher = pattern.matcher(otpText);
+
+        String otp = null;
+        if (matcher.find()) 
+        {
+        otp = matcher.group(1);
+        System.out.println("OTP: " + otp); // Output: OTP: 395987
+        } 
+
+        
     }
 
 
