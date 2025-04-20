@@ -1,7 +1,21 @@
-<suite name="Suite">
+<!-- <suite name="Suite">
     <test name="Login Test">
         <classes>
             <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+</suite> -->
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ParallelTests" parallel="tests" thread-count="2">
+    <test name="AndroidTest">
+        <classes>
+            <class name="tests.AndroidTest"/>
+        </classes>
+    </test>
+     <test name="IOSTest">
+        <classes>
+            <class name="tests.IOSTest"/>
         </classes>
     </test>
 </suite>
