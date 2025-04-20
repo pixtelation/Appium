@@ -11,5 +11,6 @@ public class LoginTest extends Base {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("Arif.raza@weavers-web.com", "Test@123");
         System.out.println("Login Test Executed!");
+        
     }
 }

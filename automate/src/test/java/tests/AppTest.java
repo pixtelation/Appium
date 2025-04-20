@@ -15,10 +15,10 @@ public class AppTest {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setPlatformName("Android");
         options.setDeviceName("RealMe 9i"); // Any name
-        options.setUdid("192.168.100.2:5555"); // Wireless ADB IP
+        options.setUdid("192.168.7.3:5555"); // Wireless ADB IP
         options.setAppPackage("com.bashdit.app");
         options.setAppActivity("com.bashdit.app.MainActivity");
-        options.setAutomationName("UiAutomator2");
+        options.setAutomationName("UiAutomator2");   
        // options.setNoReset(true);  // Prevents closing the app after execution
 
         // Start Appium session
