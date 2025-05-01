@@ -1,7 +1,6 @@
 package tests;
 import base.Base;
 import org.testng.annotations.Test;
-import java.util.Scanner;
 import pages.SignupPage; 
 import resources.Data;
 

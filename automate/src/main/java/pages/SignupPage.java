@@ -3,6 +3,9 @@ package pages;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,27 +19,37 @@ public class SignupPage {
 
     public SignupPage(AndroidDriver driver)
     {
-        this.driver =driver;
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
     
-    By homesignbutton = By.xpath("//android.widget.Button[@content-desc=\"Sign up\"]");
-    By SignUsername = By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]");
-    By SignEmail = By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]");
-    By SignPassword = By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[3]");
-    By SignUpButton = By.xpath("//android.widget.Button[@content-desc=\"Sign up\"]");
+   @FindBy(xpath = "//android.widget.Button[@content-desc=\"Sign up\"]")
+   WebElement homesignbutton;
 
+   @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]")
+    WebElement SignUsername;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]")
+   WebElement SignEmail;
+
+   @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[3]")
+   WebElement SignPassword;
+
+   @FindBy(xpath = "//android.widget.Button[@content-desc=\"Sign up\"]")
+   WebElement SignUpButton;
+
+    
 
     public void signup(String username, String email, String password) throws InterruptedException {
-        driver.findElement(homesignbutton).click();
-        driver.findElement(SignUsername).click();
-        driver.findElement(SignUsername).sendKeys(username);
-        driver.findElement(SignEmail).click();
-        driver.findElement(SignEmail).sendKeys(email + "@maildrop.cc");
-        driver.findElement(SignPassword).click();
-        driver.findElement(SignPassword).sendKeys(password);
-        driver.findElement(SignUpButton).click();
-
-
+       homesignbutton.click();
+       SignUsername.click();
+       SignUsername.sendKeys(username);
+       SignEmail.click();
+       SignEmail.sendKeys(email + "@yopmail.com");
+       SignPassword.click();
+       SignPassword.sendKeys(password);
+       SignUpButton.click();
+       
     }
 
     public void otp(){

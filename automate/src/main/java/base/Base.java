@@ -2,14 +2,13 @@ package base;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 import java.net.URL;
 
 public class Base {
-    public AndroidDriver driver;
+    protected AndroidDriver driver;
 
     @SuppressWarnings("deprecation")
     @BeforeClass
@@ -17,7 +16,7 @@ public class Base {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setPlatformName("Android");
         options.setDeviceName("RealMe 9i"); 
-        options.setUdid("192.168.7.3:5555");    //Change as per device
+        options.setUdid("192.168.100.6:5555");    //Change as per device
         options.setAppPackage("app.plugg.social");   //Change as per app
         options.setAppActivity("app.plugg.social.MainActivity");  //Change as per app
         options.setAutomationName("UiAutomator2");
